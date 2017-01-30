@@ -16,10 +16,9 @@
 @end
 @implementation TransferSpeedImageView
 - (instancetype)initWithFrame:(CGRect)frame dict:(UIImage *) image{
-    
+  
     if(self==[super initWithFrame:frame]){
         [self setImage:image];
-        currentImage=image;
         [self setImageOrientation:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     }
     return self;

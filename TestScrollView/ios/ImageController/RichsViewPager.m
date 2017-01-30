@@ -9,7 +9,6 @@
 #import "RichsViewPager.h"
 
 @interface RichsViewPager(){
-  TransferSpeedImageView *_cropperImage;
   NSInteger currentPage;
   UIButton * mButton;
   //缩放前保留contentOffset.x ,回弹后回归初始化操作
@@ -24,6 +23,7 @@
 }
 @property(nonatomic, assign) CGPoint touchStart;
 @property(nonatomic,strong) TransferSpeedImageScrollView * mPhotoScrollView;
+@property(nonatomic,strong) TransferSpeedImageView *cropperImage;
 #define ScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define ScreenWidth [[UIScreen mainScreen] bounds].size.width
 @end
@@ -166,7 +166,8 @@
       //            view.transform = CGAffineTransformScale(view.transform, gesture.scale, gesture.scale);
       BOOL canScale = [self scale:gesture.scale - 1.0 hScaleFactor:gesture.scale - 1.0 checkMaxScaleFactor:YES gestureTag:2];
       if (canScale) {
-        CGSize factor = CGSizeMake(gesture.scale, gesture.scale);
+         CGSize factor = CGSizeMake(gesture.scale, gesture.scale);
+         //此处需要进行数据连接
       }
       gesture.scale = 1;
     }
@@ -190,11 +191,8 @@
       }];
       return;
     }
-    
-    
     // 缩放结束后恢复锚点
     CGPoint anchorPoint = CGPointMake(0.5f, 0.5f);
-    //        [self setAnchorPoint:anchorPoint forView:view];
     [self setAnchorPoint:anchorPoint forView:_cropperImage];
     
   }
