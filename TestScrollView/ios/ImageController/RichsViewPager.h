@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TransferSpeedImageView.h"
 #import "TransferSpeedImageScrollView.h"
-@interface RichsViewPager : UIView<TransferSpeedImageScrollViewDelegate>
+#import <React/RCTView.h>
+@interface RichsViewPager : RCTView<TransferSpeedImageScrollViewDelegate>
 
 @end
